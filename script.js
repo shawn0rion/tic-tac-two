@@ -61,6 +61,9 @@ function handleResultValidation() {
 };
 
 function handleCellClicked(cellEvent) {
+    if (cellEvent.target.innerHTML !== "" || !gameActive){
+        return;
+    }
 
     handleCellPlayed(cellEvent.target);
 
@@ -68,17 +71,6 @@ function handleCellClicked(cellEvent) {
 
     if (gameActive === true){
         handlePlayerChange();
-    }
-
-    cellEvent.target.removeEventListener('click', handleCellClicked);
-
-    // if game over, remove event listener for all cells not clicked
-    if (gameActive !== true){
-        document.querySelectorAll('.cell').forEach((cell) => {
-            if (gameState[cell.id] === ""){
-                cell.removeEventListener('click', handleCellClicked);
-            }
-        })
     }
 };
 
