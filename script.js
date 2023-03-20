@@ -82,10 +82,7 @@ function handleRestartGame() {
     gameStatus.innerHTML = "";
     gameState = ['','','','','','','','',''];
     gameActive = true;
-    document.querySelectorAll('.cell').forEach((cell) => {
-        cell.innerHTML = "";
-        cell.addEventListener('click', handleCellClicked);
-    })
+    document.querySelectorAll('.cell').forEach((cell) => cell.innerHTML = "");
 };
 
 
